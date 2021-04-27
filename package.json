@@ -1,0 +1,22 @@
+{
+    "name": "Cocktail",
+    "version": "1.0.0",
+    "description": "Cocktail maker",
+    "main": "login.js",
+    "scripts": {
+    "start": "node login.js"
+  },
+    "repository": {
+    "type": "git",
+    "url": ""
+  },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "mongodb":"3.6.6"
+      },
+    "bugs": {
+    "url": ""
+  },
+    "homepage": ""
+  }
