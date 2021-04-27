@@ -2,9 +2,9 @@
     "name": "Cocktail",
     "version": "1.0.0",
     "description": "Cocktail maker",
-    "main": "login.js",
+    "main": "home.js",
     "scripts": {
-    "start": "node login.js"
+    "start": "node home.js"
   },
     "repository": {
     "type": "git",
