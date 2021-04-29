@@ -5,41 +5,41 @@ const url = "mongodb+srv://mhidrovo:aaa@cluster0.jwixh.mongodb.net/Drinks?retryW
 
 const bodyParser = require('body-parser');
 const express = require('express');
-const app = express()
+const app = express();
 
 //gets css & pictures & any other static file
-app.use(express.static('D:/web programming/SpotifyFinal'))
-
+app.use(express.static('public'))
+const port = process.env.PORT || 3000;
 
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.listen(3030, function() {
-    console.log('listening on 3030')
-  })
+app.listen(port, function() {
+    console.log('listening on 3030');
+  });
 
-app.get('/', function(req, res)  {
+// app.get('/', function(req, res)  {
 
-    res.sendFile('D:/web programming/SpotifyFinal' + '/index.html')
-    console.log('fuck')
-})
+//     res.sendFile('public/index.html')
+//     console.log('fuck')
+// })
 
-app.get('/index.html', function(req, res)  {
+// app.get('/index.html', function(req, res)  {
 
-    res.sendFile('D:/web programming/SpotifyFinal' + '/index.html')
-    console.log('fuck')
-})
+//     res.sendFile('public/index.html');
+//     console.log('fuck');
+// })
 
-app.get('/login.html', function(req, res)  {
+// app.get('/login.html', function(req, res)  {
 
-    res.sendFile('D:/web programming/SpotifyFinal' + '/login.html')
-    console.log('fuck')
-})
+//     res.sendFile('/login.html');
+//     console.log('fuck');
+// })
 
 
-app.post('/getInfo', (req, res) => {
-    console.log(req.body)
-})
+// app.post('/getInfo', (req, res) => {
+//     console.log(req.body);
+// })
 
 // app.use(express.static('SpotifyFinal'));
 
@@ -48,7 +48,7 @@ var http = require('http');
 var fs = require('fs');
 var querystring = require('querystring');
 
-// var port = process.env.PORT || 3000;
+
 
 
 
