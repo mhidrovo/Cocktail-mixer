@@ -1,6 +1,48 @@
 /* Is there a way to split this into files? */
 const MongoClient = require('mongodb').MongoClient;
+
 const url = "mongodb+srv://mhidrovo:aaa@cluster0.jwixh.mongodb.net/Drinks?retryWrites=true&w=majority"; 
+
+const bodyParser = require('body-parser');
+const express = require('express');
+const app = express()
+
+//gets css & pictures & any other static file
+app.use(express.static('D:/web programming/SpotifyFinal'))
+
+
+
+app.use(bodyParser.urlencoded({ extended: true }))
+
+app.listen(3030, function() {
+    console.log('listening on 3030')
+  })
+
+app.get('/', function(req, res)  {
+
+    res.sendFile('D:/web programming/SpotifyFinal' + '/index.html')
+    console.log('fuck')
+})
+
+app.get('/index.html', function(req, res)  {
+
+    res.sendFile('D:/web programming/SpotifyFinal' + '/index.html')
+    console.log('fuck')
+})
+
+app.get('/login.html', function(req, res)  {
+
+    res.sendFile('D:/web programming/SpotifyFinal' + '/login.html')
+    console.log('fuck')
+})
+
+
+app.post('/getInfo', (req, res) => {
+    console.log(req.body)
+})
+
+// app.use(express.static('SpotifyFinal'));
+
 
 var http = require('http');
 var fs = require('fs');
@@ -8,7 +50,10 @@ var querystring = require('querystring');
 
 // var port = process.env.PORT || 3000;
 
-http.createServer(function(req, res)
+
+
+
+server = http.createServer(function(req, res)
 {
     if(req.url == "/") {
         file = 'index.html';
@@ -86,7 +131,7 @@ http.createServer(function(req, res)
         req.on('end', () => {
             input_data = querystring.parse(input_data);
             console.log(input_data['query_string']);
-
+            
             var url = input_data['query_string'];
             let fetchDataFromAPI = async (url) => {
                 console.log("hello");
@@ -97,6 +142,9 @@ http.createServer(function(req, res)
                 // alert("bye");
             }
             // alert(JSON.stringify(result));
+
+
+
             let response = fetch(input_data['query_string']);
 
             if (response.ok) { // if HTTP-status is 200-299
@@ -113,11 +161,13 @@ http.createServer(function(req, res)
 
             //fetch(input_data['query_string']).then(res => res.json()).then(data => console.log(data)).catch(err =>console.log(err));
         })
-        
+        //DO EXPRESS AND THEN FETCH
     }
     else
     {
         res.end();
     }
-}).listen(3030);
+    
+})
 
+//server.listen(3030);
