@@ -7,7 +7,7 @@
                 color:blueviolet;
             }
         </style>
-        <script>
+        <script src="frontend/apirequest.js">
             
 
 
@@ -18,15 +18,13 @@
       <form 
       name="ingredient" 
       id="ingredient"
-      onsubmit="apiFetch()"
-      method="POST"
-      action="http://localhost:3030/getInfo">
+      >
       <input type="hidden" name="query_string" id="fetch_request">
           <div id="ingredients">
               <input type="text" name="ingredient1">
               <br>
           </div> 
-          <input type="submit" value="Search cocktail!">
+          <input type="button" value="Search cocktail!" onclick="apiFetch()">
       </form> 
       <button onclick="add_ingredient()">+</button>
       <script>
@@ -49,50 +47,15 @@
                 if(i != arr_ingredients.length - 1)
                     query_to_send += "&";    
             }
-            // document.getElementsByName('query_string')[0].innerHTML = query_to_send;
-            // alert(query_to_send);
+
             var full_query = http_path + query_to_send;
             document.getElementById('fetch_request').value = full_query;
-            // alert(full_query);
-            // fetchInfo(full_query);
-
-
-            // alert(http_path);
+            console.log("hello")
+            fetchInfo(full_query)
         }
 
 
-        function fetchInfo(full_query)
-        {
-            // alert(full_query);
-
-            // let fetchDataFromAPI = async (full_query) => {
-            //     // alert("hello");
-            //     let response = await fetch(full_query);
-            //     let result = await response.json();
-            //     let dude = JSON.stringify(result);
-            //     alert(dude);
-            //     // alert("bye");
-            // }
-            // alert(JSON.stringify(result));
-
-
-
-            // let response = fetch(full_query).then(res => res.json()).then(data => console.log(data)).catch(err =>console.log(err));;
-
-            // if (response.ok) { // if HTTP-status is 200-299
-            //     // get the response body (the method explained below)
-            //     let json = response.json();
-            // } else {
-            //     alert("HTTP-Error: " + response.status);
-            // }
-            // to_alert = JSON.stringify(json);
-            // alert(to_alert);
-
-            // something = fetch(full_query).then(res => res.json()).then(data => console.log(data)).catch(err =>console.log(err));
-            // // var json_format = JSON.stringify(data);
-            // alert(something);
-
-        }
+       
     </script> 
     </body>
 </html>
