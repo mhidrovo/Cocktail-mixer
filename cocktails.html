@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Cocktail Maker
+	</title>
+
+	<link rel="stylesheet" type="text/css" href="cocktails.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<div id="navBar">
+
+		<!-- logo -->
+		<span id="logo">
+			<a href="index.html"> <img src="Cocktail_Maker.svg" height="100%"></a>
+		</span>
+
+		<span id="links">
+			<!-- About -->
+			<span class="navBox">
+				<a href="about.html"> About </a>
+			</span>
+
+			<!-- Weekly Favorites -->
+			<span class="navBox">
+				<a href="favorite.html"> Weekly Favorite </a>
+			</span>
+
+			<!-- Find Cocktails -->
+			<span class="navBox">
+				<a href="cocktails.html"> Find Cocktails </a>
+			</span>
+		</span>
+
+	</div>
+
+	<div id="formBackground">
+		<div id="form">
+			<h1>Find your next cocktail:</h1>
+
+			<form>
+
+				<p> 
+					<span class="radio">
+						<input type="radio"  name="recipe/cocktail" value="cocktail" id="cocktail" checked="checked" onclick="checkCorI()"/>Look up cocktails
+					</span>
+					<span class="radio">
+						<input type="radio"  name="recipe/cocktail" value="ingredients" id="ingredients" onclick="checkCorI()"/>Look up ingredients
+					</span>
+				</p>
+
+				<p class="onlyIfCocktail">
+					Your cocktail's name:<input type="text"  name="searchInput" size="28" placeholder="'mojito', or 'margarita' for example"/>
+				</p>
+
+				<p class="onlyIfIngredients">
+					Your ingredients:<input type="text"  name="searchInput" size="22" placeholder="'rum', or 'mint' for example"/>
+				</p>
+
+				<p> 
+					<span class="radio">
+						<input type="radio"  name="alcoholic/non" value="alcoholic" id="alcoholic" checked="checked"/>Alcoholic
+					</span>
+					<span class="radio">
+						<input type="radio"  name="alcoholic/non" value="nonAlcoholic" id="nonAlcoholic"/>Non Alcoholic
+					</span>
+				</p>
+
+				<p>
+					<input type='submit' value="Search" onclick="fetchData()">
+				</p>
+
+			</form>
+		</div>
+	</div>
+
+	<div id="results">
+		
+	</div>
+
+	<script language="javascript">
+
+		$(document).ready(function() {
+    		$(".onlyIfIngredients").hide();
+		});
+
+		function checkCorI() {
+			$(document).ready(function() {
+
+				if (document.getElementById("cocktail").checked) {
+					$(".onlyIfIngredients").hide();
+					$(".onlyIfCocktail").show();
+				}
+
+				else {
+					$(".onlyIfCocktail").hide();
+					$(".onlyIfIngredients").show();
+				}
+			})
+		}
+
+		function fetchData() {
+			
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
