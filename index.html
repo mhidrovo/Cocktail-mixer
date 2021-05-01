@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Cocktail Maker
+	</title>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="navBar">
+
+		<!-- logo -->
+		<span id="logo">
+			<a href="index.html"> <img src="Cocktail_Maker.svg" height="100%"></a>
+		</span>
+
+		<span id="links">
+			<!-- About -->
+			<span class="navBox">
+				<a href="about.html"> About </a>
+			</span>
+	</div>
+    <div id = "Register">
+        <p class = "reg" align = "center">Register</p>
+        <form method  = "POST" action = "../auth/login">
+            
+        </form>
+    </div>
+
+	<div id="Login">
+              <p class="sign" align="center">Sign in</p>
+              <form    method="POST" action="../auth/login"   >
+                <input class="un" type="text" align="center" placeholder="Username">
+                <input class="pass" type="password" align="center" placeholder="Password">
+                <button type="submit" type = "submit" align="center" onclick = return checkLogin() >Sign in</a>
+                </form>
+	</div>
+
+</body>
+<script> 
+async function handleSubmit () {
+  //...
+  // Make the login API call
+  const response = await fetch(`../auth/login`, {
+    method: 'POST',
+    body: JSON.stringify({ username, password })
+  })
+  //...
+  // Extract the JWT from the response
+  const { jwt_token } = await response.json()
+  console.log(jwt_token);
+  //...
+  // Do something the token in the login method
+//   await login({ jwt_token })
+//   inMemoryToken = {
+//     token: jwt_token,
+//     expiry: jwt_token_expiry
+//   };
+//   if (!noRedirect) {
+//     Router.push('/app')
+//   }
+}
+</script>
+</html>
