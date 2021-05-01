@@ -63,7 +63,7 @@ router.post('/login', async (req, res) => {
 
     res.header('auth-token', token).send(token);
 
-    // res.send("Logged in!");
+    res.send("Logged in!");
     
 })
 
