@@ -19,8 +19,7 @@
     "express": "4.17.1",
     "joi": "^17.4.0",
     "jsonwebtoken": "^8.5.1",
-    "mongodb": "3.6.6",
-    "auth":"file:routes/auth"
+    "mongodb": "3.6.6"
   },
   "bugs": {
     "url": ""
