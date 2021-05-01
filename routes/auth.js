@@ -4,6 +4,7 @@ const router = require('express').Router();
 const User = require('../User');
 const Joi = require('joi');
 const jwt = require('jsonwebtoken');
+var querystring = require('querystring');
 
 /* Join object will verify that username and password are at least
  * 6 characters long.  */
@@ -54,9 +55,26 @@ router.post('/register', async (req, res) =>
 
 router.post('/login', async (req, res) => {
      //checks to see if username already exists in database
-    const user = await User.findOne({username: req.body.username});
-    if (!user) return res.status(400).send("Incorrect username or password");
-    if ( req.body.password != user.password ) return res.status(400).send("Incorrect username or password");
+     input_data = "";
+     req.on('data', data => {
+        input_data += data.toString();
+    });
+
+    req.on('end', () => {
+    input_data = querystring.parse(input_data);
+    })
+     
+
+    const user = await User.findOne({username: input_data['username']});
+    // console.log("Username is " + user.username + "and pasword:" + user.password);
+
+
+    if (user == null) {
+        console.log(input_data['username'] + " is the username");
+        return res.status(400).send("This means username doesn't exist");
+    } 
+   
+    if ( req.body.password != user.password ) return res.status(400).send("They do not match");
 
     // Creating and assign Web Token 
     const token = jwt.sign({_id: user._id}, 'logged_in_for_now'); 

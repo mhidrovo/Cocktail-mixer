@@ -1,9 +1,9 @@
-// const router = require('express').Router();
-// const verify = require('./validatetoken');
+const router = require('express').Router();
+const verify = require('./validatetoken');
 
 
-// router.get('/', verify, (req, res) => {
-//     res.send(req.user);
-// });
+router.get('/', verify, (req, res) => {
+    res.send(req.user);
+});
 
-// module.exports = router;
+module.exports = router;
