@@ -20,7 +20,6 @@
     "joi": "^17.4.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "3.6.6",
-    "User": "file:User",
     "auth":"file:routes/auth"
   },
   "bugs": {
