@@ -22,7 +22,7 @@
 			</span>
 	</div>
     <div id = "Register">
-        <p class = "reg" align = "center">Register</p>
+        <p class = "reg">Register</p>
         <form method  = "POST" action = "../auth/login">
             
         </form>
@@ -30,7 +30,7 @@
 
 	<div id="Login">
               <p class="sign">Sign in</p>
-              <form    method="POST" action="http://localhost:3000/api/user/login"   >
+              <form method="POST" action="http://localhost:3000/api/user/login">
                 <input class="un" type="text" name="username"  placeholder="Username">
                 <input class="pass" name="password" type="password"  placeholder="Password">
                 <button type="submit" type = "submit">Sign in</a>
@@ -41,12 +41,32 @@
 <script> 
 async function handleSubmit () {
   //...
+  // alert("What is up");
   // Make the login API call
-  const response = await fetch(`../auth/login`, {
+  var usernm = document.getElementsByName('username')[0].value;
+  var pw = document.getElementsByName('password')[0].value;
+  alert(usernm);
+  alert(pw);
+  let data = {
+    username:usernm,
+    password:pw
+  }
+  var request = new Request('http://localhost:3000/api/user/login?', {
     method: 'POST',
-    body: JSON.stringify({ username, password })
-  })
+    body: data,
+    headers: new Headers()
+});
+fetch(request).then(msg => console.log(msg))
+
+  await fetch('http://localhost:3000/api/user/login?' + 'username=' + usernm + '&password=' + pw, {
+    // method: 'POST', body: {
+      method:'POST'
+    //   username:usernm,
+    //   password:pw
+    // }
+  }).then(response => console.log(response));
   //...
+  console.log("hello");
   // Extract the JWT from the response
   const { jwt_token } = await response.json()
   console.log(jwt_token);
