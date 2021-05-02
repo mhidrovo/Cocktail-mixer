@@ -5,6 +5,13 @@ const User = require('../User');
 const Joi = require('joi');
 const jwt = require('jsonwebtoken');
 var querystring = require('querystring');
+const MongoClient = require('mongodb').MongoClient;
+const url = "mongodb+srv://mhidrovo:aaa@cluster0.jwixh.mongodb.net/Drinks?\
+             retryWrites=true&w=majority";
+
+
+
+
 
 /* Join object will verify that username and password are at least
  * 6 characters long.  */
@@ -55,6 +62,8 @@ router.post('/register', async (req, res) =>
 
 router.post('/login', async (req, res) => {
      //checks to see if username already exists in database
+    //  res.writeHead(200, {'Content-Type': 'text/html'});
+    // res.write("<h2> PROCESSING FORM </h2>");
      input_data = "";
      req.on('data', data => {
         input_data += data.toString();
@@ -63,25 +72,82 @@ router.post('/login', async (req, res) => {
     req.on('end', () => {
     input_data = querystring.parse(input_data);
     })
+
+
+    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
+        if(err) { 
+            console.log("Connection err: " + err); return; 
+        }
+        var dbo = db.db("Drinks");
+        var coll = dbo.collection('users');
+        console.log("before find");
+        user_query = {username:input_data['username']};
+        coll.find(user_query).toArray(function(err, items) {
+          if (err) {
+            console.log("Error: " + err);
+          } 
+          else 
+          {
+            // if(input_data['password'] != items[0].password)
+            //     return res.send("Incorrect password");
+            if (items.length == 0)
+                return res.send("Not found");
+            if(input_data['password'] != items[0].password)
+                return res.send("Incorrect password");
+            const token = jwt.sign({_id: items[0]._id}, 'logged_in_for_now'); 
+            res.header('auth-token', token).send(token);
+            // localStorage.setItem('auth-token', token);
+          }   
+          db.close();
+        });
+    });
+
+
+
+
+
      
 
-    const user = await User.findOne({username: input_data['username']});
+    // const user = await User.find({username: input_data['username']});
+    // var stream = await User.find({username:input_data['username']});
+    // stream.on('data', function(users){
+    //     users.forEach(function(user){
+    //        console.log(user.username);
+    //     });
+    // });
+    // stream.on('error', function(error){
+    //     console.log(error);
+    // });
+
+
+    // const Dan = User.find({username:"Dan"});
+    // console.log(Dan.username);
+    // User.find({ username: input_data['username'] }).then(users => {              
+    //     console.log(users[0].username); // 'A'
+    // });
+
+
+
+
+
+
+    // console.log("Our username is: " + user[0].username);
     // console.log("Username is " + user.username + "and pasword:" + user.password);
 
 
-    if (user == null) {
-        console.log(input_data['username'] + " is the username");
-        return res.status(400).send("This means username doesn't exist");
-    } 
+    // if (user == null) {
+    //     console.log(input_data['username'] + " is the username");
+    //     return res.status(400).send("This means username doesn't exist");
+    // } 
+
+    // // console.log("Password stored in DB is: " + user[0].password);
+    // console.log("Password inputted by user is: " + input_data['password']);
    
-    if ( req.body.password != user.password ) return res.status(400).send("They do not match");
+    // // if ( input_data['password'] != user.password ) return res.status(400).send("The passwords do not match");
 
     // Creating and assign Web Token 
-    const token = jwt.sign({_id: user._id}, 'logged_in_for_now'); 
 
-    res.header('auth-token', token).send(token);
-
-    res.send("Logged in!");
+    // res.send();
     
 })
 
