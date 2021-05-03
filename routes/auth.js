@@ -40,7 +40,7 @@ router.post('/register', async (req, res) =>
             console.log("Connection err: " + err); return; 
         }
         var dbo = db.db("Drinks");
-        var coll = dbo.collection('users');
+        var coll = dbo.collection('users'); 
         console.log("before find");
         console.log("Username is: " + input_data['username'] + "    Password: " + input_data['password']);
         user_query = {username:input_data['username']};
@@ -63,6 +63,8 @@ router.post('/register', async (req, res) =>
         });
     });
 });
+
+
 
 router.post('/login', async (req, res) => {
 
