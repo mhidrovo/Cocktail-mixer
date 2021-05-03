@@ -65,12 +65,8 @@ router.post('/register', async (req, res) =>
 });
 
 router.post('/login', async (req, res) => {
-    console.log("here!");
-    // file = 'login.html';
-    // fs.readFile(file, function(err, txt){
-    //     res.writeHead(200, {'Content-Type': 'text/html'});
-    //     res.write(txt);
-    // })
+
+    // console.log("here!");
      input_data = "";
      req.on('data', data => {
         input_data += data.toString();
@@ -87,7 +83,7 @@ router.post('/login', async (req, res) => {
         }
         var dbo = db.db("Drinks");
         var coll = dbo.collection('users');
-        console.log("before find");
+        // console.log("before find");
         console.log("Username is: " + input_data['username'] + "    Password: " + input_data['password']);
         user_query = {username:input_data['username']};
         coll.find(user_query).toArray(function(err, items) {
@@ -96,14 +92,12 @@ router.post('/login', async (req, res) => {
           } 
           else 
           {
-            // if(input_data['password'] != items[0].password)
-            //     return res.send("Incorrect password");
             if (items.length == 0)
                 return res.send("Not found");
             if(input_data['password'] != items[0].password)
                 return res.send("Incorrect password");
                 isLoggedIn = true;
-                return res.redirect('https://medium.com/swlh/fetch-requests-and-controller-actions-connecting-the-frontend-to-the-backend-733a87ffe757');
+                return res.redirect('/home');
           }   
           db.close();
         });

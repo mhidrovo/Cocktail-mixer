@@ -20,7 +20,7 @@ mongoose.connect(url,{ useUnifiedTopology: true, useNewUrlParser: true, useCreat
 app.use(express.json());
 // Route middlewares:
 app.use("/api/user", authRoute);
-
+app.use("/")
 // var drinkSchema = new mongoose.Schema(
 //     {
 //         username: {type: String, unique: true , required: true, maxLength: 100},
