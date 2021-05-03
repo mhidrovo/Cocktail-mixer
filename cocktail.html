@@ -36,23 +36,23 @@
             document.getElementById('ingredients').innerHTML += "<input type='text' name='ingredient1'><br>";   
         }
 
-        function apiFetch()
-        {
-            var query_to_send = "";
-            arr_ingredients = document.getElementsByName("ingredient1");
-            for(var i = 0; i < arr_ingredients.length; i++)
-            {
-                if (arr_ingredients[i] != "")
-                    query_to_send += "i=" + arr_ingredients[i].value
-                if(i != arr_ingredients.length - 1)
-                    query_to_send += "&";    
-            }
+        // function apiFetch()
+        // {
+        //     var query_to_send = "";
+        //     arr_ingredients = document.getElementsByName("ingredient1");
+        //     for(var i = 0; i < arr_ingredients.length; i++)
+        //     {
+        //         if (arr_ingredients[i] != "")
+        //             query_to_send += "i=" + arr_ingredients[i].value
+        //         if(i != arr_ingredients.length - 1)
+        //             query_to_send += "&";    
+        //     }
 
-            var full_query = http_path + query_to_send;
-            document.getElementById('fetch_request').value = full_query;
-            console.log("hello")
-            fetchInfo(full_query)
-        }
+        //     var full_query = http_path + query_to_send;
+        //     document.getElementById('fetch_request').value = full_query;
+        //     console.log("hello")
+        //     fetchInfo(full_query)
+        // }
 
 
        
