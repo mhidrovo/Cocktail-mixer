@@ -48,11 +48,11 @@
 				</p>
 
 				<p class="onlyIfCocktail">
-					Your cocktail's name:<input type="text"  name="searchInput" size="28" placeholder="'mojito', or 'margarita' for example"/>
+					Your cocktail's name:<input type="text"  name="searchInput" id="cocktail_name" size="28" placeholder="'mojito', or 'margarita' for example"/>
 				</p>
 
 				<p class="onlyIfIngredients">
-					Your ingredients:<input type="text"  name="searchInput" size="22" placeholder="'rum', or 'mint' for example"/>
+					Your ingredients:<input type="text"  id= "all_ingredients" name="searchInput" size="22" placeholder="'rum', or 'mint' for example"/>
 				</p>
 
 				<!--
@@ -67,7 +67,11 @@
 				-->
 
 				<p>
+<<<<<<< HEAD
+					<input type='button' value="Search" onclick="fetchData()">
+=======
 					<input class="button" type='submit' value="Search" onclick="fetchData()">
+>>>>>>> d8fc7e36d458813a49a547d87c2b16b4bc0c10e4
 				</p>
 
 			</form>
@@ -98,13 +102,103 @@
 				}
 			})
 		}
-
+		const cocktail_http = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
+		const ingredient_http = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?";
 		function fetchData() {
 			
+			var ingredients = document.getElementById('all_ingredients').value
+			var cocktailName = document.getElementById('cocktail_name').value
+			// alert("Ingredients is: " + ingredients);
+			// alert("cocktailName is: " + cocktailName);
+			if(ingredients == "")
+				fetchCocktailByName(cocktailName);
+			else
+				setUpCocktailIngredients(ingredients);
+		}
+		function setUpCocktailIngredients(ingredients_string)
+		{
+			// alert("here");
+			var ingredient_array = ingredients_string.split(", ");
+			api_drink_request = "";
+			for (var i = 0; i < ingredient_array.length; i++)
+			{
+				if(ingredient_array[i] != "") {
+					api_drink_request += "i=" + ingredient_array[i]
+					if(i != ingredient_array.length - 1)
+						api_drink_request += "&";
+				}
+
+			}
+			var full_ingredient_request = ingredient_http + api_drink_request;
+			// For testing purposes only: 
+			// console.log(full_ingredient_request);
+			fetchCocktailByIngredient(full_ingredient_request);
+		}
+
+		function fetchCocktailByIngredient(api_request)
+		{
+			fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Rum')
+			.then(function(response) {
+				return response.json();
+			})
+			 .then(function(json) {
+				//   console.log(json)
+				var string = JSON.stringify(json);
+        		var read_in = JSON.parse(string);
+        		read_in.drinks.forEach(drink => {
+					fetchCocktailByName(drink.strDrink);
+				});
+			});
+		}
+
+		function fetchCocktailByName(cocktailName)
+		{
+			var fetch_query = cocktail_http + cocktailName
+			fetch(fetch_query)
+    		.then(function(response) {
+        		return response.json();
+    		})
+			.then(function(json) {
+				// console.log(json);
+				var string = JSON.stringify(json);
+				var read_in = JSON.parse(string);
+        		var search_q = "";
+        		read_in.drinks.forEach(drink => {
+				var new_div = document.createElement("div");
+				new_div.className = "Image_response";
+				var new_img = document.createElement("img");
+				new_img.style.width = "50vh";
+				// new_img.style.display = "inline-block";
+				new_img.src = drink.strDrinkThumb;
+				// new_div.style.margin = "15px";
+				new_div.appendChild(new_img);
+				var sample_text = document.createElement("p");
+				sample_text.innerHTML = drink.strInstructions;
+				sample_text.style.color = "#aaa";
+				new_div.appendChild(sample_text)
+				document.body.appendChild(new_div);
+
+        	});
+			});
 		}
 	</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
