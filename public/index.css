@@ -124,6 +124,20 @@ h5 {
 
 @media only screen and (max-width: 1100px) {
 
+	#navBar {
+		height: 6%;
+	}
+
+	#logo {
+		padding-top: 3.8%
+	}
+
+	.navBox {
+		font-size: calc(10px + 1.6vw);
+		padding-top: 3vw;
+	}
+
+
 	body {
 		background-image: url('phone_cocktail.jpg');
 	}

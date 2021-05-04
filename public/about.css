@@ -65,6 +65,10 @@ h3 {
 	margin: 40px 50px;
 }
 
+h4 {
+	font-weight: 200;
+}
+
 .row {
 	display: flex;
 }
@@ -74,7 +78,7 @@ h3 {
 }
 
 .image {
-	margin: 4%;
+	margin: 4% 8%;
 }
 
 .text {
@@ -82,3 +86,34 @@ h3 {
 	margin: 3% 14%;
 	font-size: 1.2vw;
 }
+
+
+@media only screen and (max-width: 1000px) {
+
+	#navBar {
+		height: 6%;
+	}
+
+	#logo {
+		padding-top: 3.8%
+	}
+
+	.navBox {
+		font-size: calc(10px + 1.6vw);
+		padding-top: 3vw;
+	}
+
+	.titleText {
+		padding-top: 150px;
+		padding-bottom: 700px;
+	}
+
+	.container {
+		background-image: url("phone_y_cocktail.jpg");
+	}
+}
+
+
+
+
+
