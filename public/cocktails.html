@@ -113,7 +113,6 @@
 		}
 		function setUpCocktailIngredients(ingredients_string)
 		{
-			// alert("here");
 			var ingredient_array = ingredients_string.split(", ");
 			api_drink_request = "";
 			for (var i = 0; i < ingredient_array.length; i++)
@@ -149,6 +148,11 @@
 
 		function fetchCocktailByName(cocktailName)
 		{
+			const elements = document.getElementsByClassName("Results");
+    		while(elements.length > 0){
+        		elements[0].parentNode.removeChild(elements[0]);
+    		}
+
 			var fetch_query = cocktail_http + cocktailName
 			fetch(fetch_query)
     		.then(function(response) {
@@ -161,6 +165,7 @@
         		var search_q = "";
         		read_in.drinks.forEach(drink => {
 					var drink_div = document.createElement("div");
+					var drink_name = document.createElement("p");
 					var new_div = document.createElement("div");
 					var text_div = document.createElement("div");
 					var overlay_div = document.createElement("div");
@@ -168,16 +173,22 @@
 					overlay_div.className = "overlay";
 					new_div.className = "Image_response";
 					text_div.className = "text_overlay";
+					drink_div.className = "Results";
+					drink_name.className = "drink_name";
 					
 					var ingredients_list = "";
 					text_div.innerHTML = drink.strInstructions;
 					
-
+					drink_name.innerHTML = drink.strDrink;
 					var new_img = document.createElement("img");
 					new_img.className = "image";
 					//new_img.style.width = "50vh";
 					
+					new_div.appendChild(drink_name);
+					var ingdts_and_msrmts = document.createElement("p");
 
+					addIngrdts(ingdts_and_msrmts, drink);
+					new_div.appendChild(ingdts_and_msrmts);
 					// new_img.style.display = "inline-block";
 					new_img.src = drink.strDrinkThumb;
 					// new_div.style.margin = "15px";
@@ -185,16 +196,69 @@
 					overlay_div.appendChild(text_div);
 					new_div.appendChild(overlay_div);
 
-					var sample_text = document.createElement("p");
-					sample_text.innerHTML = drink.strInstructions;
-					sample_text.style.color = "#aaa";
+					// var sample_text = document.createElement("p");
+					// sample_text.innerHTML = drink.strInstructions;
+					// sample_text.style.color = "#aaa";
 
 					drink_div.appendChild(new_div);
-					drink_div.appendChild(sample_text)
+					// drink_div.appendChild(sample_text)
 					document.body.appendChild(drink_div);
 
         		});
 			});
+		}
+
+		function addIngrdts(to_append, drink)
+		{
+			if(drink.strIngredient1 != null && drink.strIngredient1 != "")
+			{
+				to_append.innerHTML+= "• ";
+				if(drink.strMeasure1 != null)
+					to_append.innerHTML+= drink.strMeasure1 + " ";
+				to_append.innerHTML += drink.strIngredient1 + "<br>"; 
+			}
+			if(drink.strIngredient2 != null && drink.strIngredient2 != "")
+			{
+				to_append.innerHTML+= "• ";
+				if(drink.strMeasure2 != null)
+					to_append.innerHTML+= drink.strMeasure2 + " ";
+				to_append.innerHTML += drink.strIngredient2 + "<br>"; 
+			}
+			if(drink.strIngredient3 != null && drink.strIngredient3 != "")
+			{
+				to_append.innerHTML+= "• ";
+				if(drink.strMeasure3 != null)
+					to_append.innerHTML+= drink.strMeasure3 + " ";
+				to_append.innerHTML += drink.strIngredient3 + "<br>"; 
+			}
+			if(drink.strIngredient4 != null && drink.strIngredient4 != "")
+			{
+				to_append.innerHTML+= "• ";
+				if(drink.strMeasure4 != null)
+					to_append.innerHTML+= drink.strMeasure4 + " ";
+				to_append.innerHTML += drink.strIngredient4 + "<br>"; 
+			}
+			if(drink.strIngredient5 != null && drink.strIngredient5 != "")
+			{
+				to_append.innerHTML+= "• ";
+				if(drink.strMeasure5 != null)
+					to_append.innerHTML+= drink.strMeasure5 + " ";
+				to_append.innerHTML += drink.strIngredient5 + "<br>"; 
+			}
+			if(drink.strIngredient6 != null && drink.strIngredient6 != "")
+			{
+				to_append.innerHTML+= "• ";
+				if(drink.strMeasure6 != null)
+					to_append.innerHTML+= drink.strMeasure6 + " ";
+				to_append.innerHTML += drink.strIngredient6 + "<br>"; 
+			}
+			if(drink.strIngredient7 != null && drink.strIngredient7 != "")
+			{
+				to_append.innerHTML+= "• ";
+				if(drink.strMeasure7 != null)
+					to_append.innerHTML+= drink.strMeasure7 + " ";
+				to_append.innerHTML += drink.strIngredient7 + "<br>"; 
+			}
 		}
 	</script>
 </body>
