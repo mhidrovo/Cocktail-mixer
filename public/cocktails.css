@@ -32,6 +32,7 @@ body {
 
 .navBox {
 	padding: 3%;
+	margin-right: 5%;
 	font-size: 1.8vw
 }
 
@@ -58,7 +59,7 @@ a:hover {
 	margin-right: 380px;
 	margin-top: 150px;
 	margin-bottom: 150px;
-	background: rgba(0, 0, 0, 0.6);
+	background: rgba(0, 0, 0, 0.73);
 }
 
 p {
@@ -76,6 +77,38 @@ input {
 
 h1 {
 	margin-bottom: 60px;
+}
+
+.button {
+	font-family: "Jura";
+	font-weight: 600;
+	margin-top: 14px;
+	padding: 4px 16px;
+	background-color: #11CEF8;
+	border: outset;
+	border-width: 1px;
+
+}
+
+.button:hover {
+	font-family: "Jura";
+	font-weight: 600;
+	margin-top: 14px;
+	padding: 4px 16px;
+	background-color: #11CEF8;
+	border: inset;
+	border-width: 1px;
+}
+
+.radio {
+	height: 18px;
+	width: 18px;
+	
+}
+
+.radio:checked {
+	height: 18px;
+	width: 18px;
 }
 
 

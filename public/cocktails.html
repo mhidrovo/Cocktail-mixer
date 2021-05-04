@@ -15,18 +15,13 @@
 
 		<!-- logo -->
 		<span id="logo">
-			<a href="/index"> <img src="Cocktail_Maker.svg" height="100%"></a>
+			<a href="home.html"> <img src="Cocktail_Maker.svg" height="100%"></a>
 		</span>
 
 		<span id="links">
 			<!-- About -->
 			<span class="navBox">
-				<a href="/about"> About </a>
-			</span>
-
-			<!-- Weekly Favorites -->
-			<span class="navBox">
-				<a href="favorite.html"> Weekly Favorite </a>
+				<a href="about2.html"> About </a>
 			</span>
 
 			<!-- Find Cocktails -->
@@ -45,10 +40,10 @@
 
 				<p> 
 					<span class="radio">
-						<input type="radio"  name="recipe/cocktail" value="cocktail" id="cocktail" checked="checked" onclick="checkCorI()"/>Look up cocktails
+						<input class="radio" type="radio"  name="recipe/cocktail" value="cocktail" id="cocktail" checked="checked" onclick="checkCorI()"/>Look up cocktails
 					</span>
 					<span class="radio">
-						<input type="radio"  name="recipe/cocktail" value="ingredients" id="ingredients" onclick="checkCorI()"/>Look up ingredients
+						<input class="radio" type="radio"  name="recipe/cocktail" value="ingredients" id="ingredients" onclick="checkCorI()"/>Look up ingredients
 					</span>
 				</p>
 
@@ -60,6 +55,7 @@
 					Your ingredients:<input type="text"  name="searchInput" size="22" placeholder="'rum', or 'mint' for example"/>
 				</p>
 
+				<!--
 				<p> 
 					<span class="radio">
 						<input type="radio"  name="alcoholic/non" value="alcoholic" id="alcoholic" checked="checked"/>Alcoholic
@@ -68,9 +64,10 @@
 						<input type="radio"  name="alcoholic/non" value="nonAlcoholic" id="nonAlcoholic"/>Non Alcoholic
 					</span>
 				</p>
+				-->
 
 				<p>
-					<input type='submit' value="Search" onclick="fetchData()">
+					<input class="button" type='submit' value="Search" onclick="fetchData()">
 				</p>
 
 			</form>
