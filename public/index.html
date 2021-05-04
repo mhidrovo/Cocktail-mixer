@@ -29,6 +29,32 @@
 	</h1>
 
 	<div id="forms">
+
+		<div id="login">
+
+			<h3>
+				Login:
+			</h3>
+			<form method="POST" action="api/user/login">
+				<p>
+					<h5>
+						Username:
+					</h5>
+					<input type="text"  name="username" id="username" pattern = ".{6,}" title = "Six or more characters"/>
+				</p>
+
+				<p>
+					<h5>
+						Password:
+					</h5>
+					<input type="password"  name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
+				</p>
+
+				<p>
+					<input class="button" type='submit' value="Login">
+				</p>
+			</form>
+		</div>
 		
 		<div id="signup">
 
@@ -60,32 +86,6 @@
 
 				<p>
 					<input class="button" type='submit' value="Signup">
-				</p>
-			</form>
-		</div>
-
-		<div id="login">
-
-			<h3>
-				Login:
-			</h3>
-			<form method="POST" action="api/user/login">
-				<p>
-					<h5>
-						Username:
-					</h5>
-					<input type="text"  name="username" id="username" pattern = ".{6,}" title = "Six or more characters"/>
-				</p>
-
-				<p>
-					<h5>
-						Password:
-					</h5>
-					<input type="password"  name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
-				</p>
-
-				<p>
-					<input class="button" type='submit' value="Login">
 				</p>
 			</form>
 		</div>
