@@ -36,19 +36,30 @@ app.get('/about', function(req, res)  {
   console.log('listening')
 });
 
+
+app.get('/invalidLogin', function(req, res)  {
+  res.sendFile(path.join(__dirname, '/public', 'loginError.html'));
+  console.log('listening')
+});
+
+app.get('/registerError', function(req, res)  {
+  res.sendFile(path.join(__dirname, '/public', 'signupError.html'));
+  console.log('listening')
+});
+
 app.get('/index', function(req, res)  {
   res.sendFile(path.join(__dirname, '/public', 'index.html'));
-  console.log('listening')
+  console.log('listening');
 });
 
 app.get('/cocktails', function(req, res)  {
   res.sendFile(path.join(__dirname, '/public', 'cocktails.html'));
-  console.log('listening')
-})
+  console.log('listening');
+});
 
 app.get('/home', function(req, res)  {
   res.sendFile(path.join(__dirname, '/public', 'home.html'));
-  console.log('listening')
+  console.log('listening');
 });
 
 

@@ -39,14 +39,22 @@ const schema = Joi.object({
 */
 router.post('/register', async (req, res) =>
 {
+    input_data = "";
+    req.on('data', data => {
+       input_data += data.toString();
+   });
+
+   req.on('end', () => {
+   input_data = querystring.parse(input_data);
+   });
     MongoClient.connect(url, { useUnifiedTopology: true }, async function(err, db) {
         if(err) { 
             console.log("Connection err: " + err); return; 
         }
         var dbo = db.db("Drinks");
         var coll = dbo.collection('users'); 
-        console.log("before find");
-        console.log("Username is: " + input_data['username'] + "    Password: " + input_data['password']);
+        // console.log("before find");
+        // console.log("Username is: " + input_data['username'] + "    Password: " + input_data['password']);
         user_query = {username:input_data['username']};
         coll.find(user_query).toArray(async function(err, items) {
             if (err) {
@@ -60,8 +68,11 @@ router.post('/register', async (req, res) =>
                 {
                     coll.insertOne({"username":input_data['username'], "password":input_data['password']})
                     /* We should return to homepage  */
-                    .then(res.redirect('https://medium.com/swlh/fetch-requests-and-controller-actions-connecting-the-frontend-to-the-backend-733a87ffe757'));
-
+                    .then(res.redirect('/index'));
+                }
+                else 
+                {
+                    return res.redirect("/registerError");
                 }
             }
         });
@@ -80,7 +91,7 @@ router.post('/login', async (req, res) => {
 
     req.on('end', () => {
     input_data = querystring.parse(input_data);
-    })
+    });
 
 
     MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
@@ -98,10 +109,8 @@ router.post('/login', async (req, res) => {
           } 
           else 
           {
-            if (items.length == 0)
-                return res.send("Not found");
-            if(input_data['password'] != items[0].password)
-                return res.send("Incorrect password");
+            if (items.length == 0 || input_data['password'] != items[0].password)
+                return res.redirect("/invalidLogin");
                 isLoggedIn = true;
                 return res.redirect('/home')
           }   
