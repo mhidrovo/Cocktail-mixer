@@ -5,6 +5,10 @@ const User = require('../User');
 const Joi = require('joi');
 const jwt = require('jsonwebtoken');
 var fs = require('fs');
+var path = require('path');
+// const express = require('express');
+// const app = express();
+
 var querystring = require('querystring');
 const express_session = require('express-session');
 const MongoClient = require('mongodb').MongoClient;
@@ -12,7 +16,7 @@ const url = "mongodb+srv://mhidrovo:aaa@cluster0.jwixh.mongodb.net/Drinks?\
              retryWrites=true&w=majority";
 
 
-
+// app.use(express.static('public'));
 var isLoggedIn = false;
 
 
@@ -86,7 +90,7 @@ router.post('/login', async (req, res) => {
         var dbo = db.db("Drinks");
         var coll = dbo.collection('users');
         // console.log("before find");
-        console.log("Username is: " + input_data['username'] + "    Password: " + input_data['password']);
+        // console.log("Username is: " + input_data['username'] + "    Password: " + input_data['password']);
         user_query = {username:input_data['username']};
         coll.find(user_query).toArray(function(err, items) {
           if (err) {
@@ -99,7 +103,7 @@ router.post('/login', async (req, res) => {
             if(input_data['password'] != items[0].password)
                 return res.send("Incorrect password");
                 isLoggedIn = true;
-                return res.redirect('/home');
+                return res.redirect('/home')
           }   
           db.close();
         });

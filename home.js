@@ -36,20 +36,25 @@ app.get('/about', function(req, res)  {
   console.log('listening')
 });
 
+app.get('/index', function(req, res)  {
+  res.sendFile(path.join(__dirname, '/public', 'index.html'));
+  console.log('listening')
+});
+
 app.get('/cocktails', function(req, res)  {
   res.sendFile(path.join(__dirname, '/public', 'cocktails.html'));
   console.log('listening')
 })
 
 app.get('/home', function(req, res)  {
-  res.sendFile(path.join(__dirname, '/public', 'about2.html'));
+  res.sendFile(path.join(__dirname, '/public', 'home.html'));
   console.log('listening')
-})
+});
 
 
 //gets css & pictures & any other static file
 app.use(express.static('public'))
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 
 app.use(bodyParser.urlencoded({ extended: true }))
