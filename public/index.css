@@ -33,6 +33,7 @@ body {
 
 .navBox {
 	padding: 3%;
+	margin-right: 5%;
 	font-size: 1.8vw
 }
 
@@ -58,6 +59,14 @@ a:hover {
 	display: flex;
 }
 
+#errorMessage {
+	margin: 27% 25%;
+	padding: 1%;
+	padding-bottom: 3%;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
 #signup {
 	flex: 50%;
 	padding: 12%;
@@ -75,5 +84,20 @@ h3 {
 	margin-bottom: 20%;
 }
 
+.button {
+	margin-top: 14px;
+	padding: 4px 16px;
+	background-color: #11CEF8;
+	border: outset;
+	border-width: 2px;
+
+}
+
+.button:hover {
+	margin-top: 14px;
+	background-color: #11CEF8;
+	border: inset;
+	border-width: 2px;
+}
 
 
