@@ -12,17 +12,21 @@
 
 		<!-- logo -->
 		<span id="logo">
-			<a href="/index"> <img src="Cocktail_Maker.svg" height="100%"></a>
+			<a href="index.html"> <img src="Cocktail_Maker.svg" height="100%"></a>
 		</span>
 
 		<span id="links">
 			<!-- About -->
 			<span class="navBox">
-				<a href="/about"> About </a>
+				<a href="about.html"> About </a>
 			</span>
 		</span>
 
 	</div>
+
+	<h1>
+		Join us to start browsing our cocktails
+	</h1>
 
 	<div id="forms">
 		
@@ -33,15 +37,21 @@
 			</h3>
 			<form method="POST" action="/api/user/register">
 				<p>
-					Username:<input type="text"  name="username" id="username"/>
+					<h5>
+						Username:
+					</h5>
+					<input type="text"  name="username" id="username"/>
 				</p>
 
 				<p>
-					Password:<input type="text"  name="password" id="password"/>
+					<h5>
+						Password:
+					</h5>
+					<input type="password"  name="password" id="password"/>
 				</p>
 
 				<p>
-					<input type='submit' value="submit" onclick="">
+					<input class="button" type='submit' value="Signup" onclick="">
 				</p>
 			</form>
 		</div>
@@ -53,15 +63,21 @@
 			</h3>
 			<form method="POST" action="api/user/login">
 				<p>
-					Username:<input type="text"  name="username" id="username"/>
+					<h5>
+						Username:
+					</h5>
+					<input type="text"  name="username" id="username"/>
 				</p>
 
 				<p>
-					Password:<input type="text"  name="password" id="password"/>
+					<h5>
+						Password:
+					</h5>
+					<input type="password"  name="password" id="password"/>
 				</p>
 
 				<p>
-					<input type='submit' value="submit" onclick="">
+					<input class="button" type='submit' value="Login" onclick="">
 				</p>
 			</form>
 		</div>

@@ -54,7 +54,7 @@ a:hover {
 #forms {
 	text-align: center;
 	padding: 6% 2%;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.7);
 	margin: 18% 22%;
 	display: flex;
 }
@@ -64,7 +64,7 @@ a:hover {
 	padding: 1%;
 	padding-bottom: 3%;
 	text-align: center;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.7);
 }
 
 #signup {
@@ -80,24 +80,41 @@ a:hover {
 	text-align: center;
 }
 
+h1 {
+	position: absolute;
+	left: 400px;
+}
+
 h3 {
 	margin-bottom: 20%;
+	font-size: 1.8vw;
+}
+
+h5 {
+	font-size: 1.1vw;
+	font-weight: 200;
+	margin-bottom: 0.6vw;
 }
 
 .button {
+	font-family: "Jura";
+	font-weight: 600;
 	margin-top: 14px;
 	padding: 4px 16px;
 	background-color: #11CEF8;
 	border: outset;
-	border-width: 2px;
+	border-width: 1px;
 
 }
 
 .button:hover {
+	font-family: "Jura";
+	font-weight: 600;
 	margin-top: 14px;
+	padding: 4px 16px;
 	background-color: #11CEF8;
 	border: inset;
-	border-width: 2px;
+	border-width: 1px;
 }
 
 
