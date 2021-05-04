@@ -115,3 +115,49 @@ h1 {
 
 
 
+.Image_response {
+	position: relative;
+	width: 25%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 50px;
+  }
+
+
+.overlay {
+	position: absolute;
+	top: 50px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: auto;
+	width: 50vh;
+	opacity: 0;
+	transition: .5s ease;
+	background-color: #353535;
+  }
+  
+.image {
+	display: block;
+	width: 50vh;
+	height: auto;
+  }
+
+.text_overlay {
+	color: rgb(255, 255, 255);
+	font-size: 25px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+  }
+
+.Image_response:hover .overlay {
+	opacity: 0.8;
+  } 
+
+

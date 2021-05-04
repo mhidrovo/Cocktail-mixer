@@ -67,11 +67,7 @@
 				-->
 
 				<p>
-<<<<<<< HEAD
 					<input type='button' value="Search" onclick="fetchData()">
-=======
-					<input class="button" type='submit' value="Search" onclick="fetchData()">
->>>>>>> d8fc7e36d458813a49a547d87c2b16b4bc0c10e4
 				</p>
 
 			</form>
@@ -164,21 +160,40 @@
 				var read_in = JSON.parse(string);
         		var search_q = "";
         		read_in.drinks.forEach(drink => {
-				var new_div = document.createElement("div");
-				new_div.className = "Image_response";
-				var new_img = document.createElement("img");
-				new_img.style.width = "50vh";
-				// new_img.style.display = "inline-block";
-				new_img.src = drink.strDrinkThumb;
-				// new_div.style.margin = "15px";
-				new_div.appendChild(new_img);
-				var sample_text = document.createElement("p");
-				sample_text.innerHTML = drink.strInstructions;
-				sample_text.style.color = "#aaa";
-				new_div.appendChild(sample_text)
-				document.body.appendChild(new_div);
+					var drink_div = document.createElement("div");
+					var new_div = document.createElement("div");
+					var text_div = document.createElement("div");
+					var overlay_div = document.createElement("div");
 
-        	});
+					overlay_div.className = "overlay";
+					new_div.className = "Image_response";
+					text_div.className = "text_overlay";
+					
+					var ingredients_list = "";
+					text_div.innerHTML = drink.strInstructions;
+					
+
+					var new_img = document.createElement("img");
+					new_img.className = "image";
+					//new_img.style.width = "50vh";
+					
+
+					// new_img.style.display = "inline-block";
+					new_img.src = drink.strDrinkThumb;
+					// new_div.style.margin = "15px";
+					new_div.appendChild(new_img);
+					overlay_div.appendChild(text_div);
+					new_div.appendChild(overlay_div);
+
+					var sample_text = document.createElement("p");
+					sample_text.innerHTML = drink.strInstructions;
+					sample_text.style.color = "#aaa";
+
+					drink_div.appendChild(new_div);
+					drink_div.appendChild(sample_text)
+					document.body.appendChild(drink_div);
+
+        		});
 			});
 		}
 	</script>
