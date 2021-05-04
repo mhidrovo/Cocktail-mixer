@@ -35,7 +35,7 @@ body {
 .navBox {
 	padding: 3%;
 	margin-right: 5%;
-	font-size: calc(16px + 0.6vw)
+	font-size: calc(16px + 0.6vw);
 }
 
 a {
@@ -49,5 +49,17 @@ a:hover {
 
 #titleText {
 	margin: 34% 12%;
-	width: 500px;
+	width: 36%;
+}
+
+@media only screen and (max-width: 1000px) {
+
+	body {
+		background-image: url('phone_cocktail.jpg');
+	}
+
+	#titleText {
+		margin: 68% 8%;
+		width: 36%;
+	}
 }
