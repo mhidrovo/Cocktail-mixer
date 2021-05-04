@@ -12,6 +12,7 @@ body {
 	display: flex;
 	width: 100%;
 	height: 12%;
+	min-height: 60px;
 	background: rgba(0, 0, 0, 0.6);
 }
 
@@ -27,13 +28,13 @@ body {
 	position: relative;
 	height: 28%;
 	flex: 10%;
-	padding: 2.4%
+	padding: 2.4%;
 }
 
 .navBox {
 	padding: 3%;
 	margin-right: 5%;
-	font-size: 1.8vw
+	font-size: calc(16px + 0.6vw)
 }
 
 a {
@@ -103,7 +104,7 @@ h1 {
 .radio {
 	height: 18px;
 	width: 18px;
-	
+
 }
 
 .radio:checked {
