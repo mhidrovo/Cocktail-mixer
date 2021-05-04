@@ -52,6 +52,7 @@ a:hover {
 	background-image: url('cocktail_bar.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
+	background-position: top center;
 }
 
 #form {
