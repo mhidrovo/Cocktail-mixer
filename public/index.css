@@ -83,7 +83,8 @@ a:hover {
 
 h1 {
 	position: absolute;
-	left: 400px;
+	left: 27%;
+	font-size: 2.26vw;
 }
 
 h3 {
@@ -105,7 +106,6 @@ h5 {
 	background-color: #11CEF8;
 	border: outset;
 	border-width: 1px;
-
 }
 
 .button:hover {
@@ -116,4 +116,12 @@ h5 {
 	background-color: #11CEF8;
 	border: inset;
 	border-width: 1px;
+}
+
+.invalid {
+	font-size: 1vw;
+}
+
+input {
+	box-sizing: border-box;
 }
