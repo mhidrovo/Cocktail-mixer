@@ -140,6 +140,7 @@ h1 {
 	display: block;
 	width: 75vh;
 	height: auto;
+	margin-bottom: 50px;
   }
 
 .text_overlay {
@@ -159,7 +160,7 @@ h1 {
 
 .drink_name {
 	text-align: center;
-	font-size: 24px;
+	font-size: 4vw;
   }
 
 
