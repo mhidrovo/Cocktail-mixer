@@ -28,13 +28,16 @@
 		Join us to start browsing our cocktails
 	</h1>
 
+	<!-- form deals with registering and login -->
 	<div id="forms">
 
+		<!-- login -->
 		<div id="login">
 
 			<h3>
 				Login:
 			</h3>
+
 			<form method="POST" action="api/user/login">
 				<p>
 					<h5>
@@ -55,12 +58,14 @@
 				</p>
 			</form>
 		</div>
-		
+
+		<!-- signup -->
 		<div id="signup">
 
 			<h3>
 				Signup:
 			</h3>
+
 			<form method="POST" action="/api/user/register">
 				<p>
 					<h5>
@@ -73,6 +78,7 @@
 					<h5>
 						Password:
 					</h5>
+					
 					<input type="password"  name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
 				</p>
 
