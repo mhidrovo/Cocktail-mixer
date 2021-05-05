@@ -56,16 +56,6 @@
 					<span>Your ingredients:</span><input type="text"  id= "all_ingredients" name="searchInput" size="22" placeholder="'rum', or 'mint' for example"/>
 				</p>
 
-				<!--
-				<p> 
-					<span class="radio">
-						<input type="radio"  name="alcoholic/non" value="alcoholic" id="alcoholic" checked="checked"/>Alcoholic
-					</span>
-					<span class="radio">
-						<input type="radio"  name="alcoholic/non" value="nonAlcoholic" id="nonAlcoholic"/>Non Alcoholic
-					</span>
-				</p>
-				-->
 
 				<p>
 					<input class="button" type='button' value="Search" onclick="fetchData()">
@@ -89,11 +79,13 @@
 			$(document).ready(function() {
 
 				if (document.getElementById("cocktail").checked) {
+					document.getElementById("all_ingredients").value = "";
 					$(".onlyIfIngredients").hide();
 					$(".onlyIfCocktail").show();
 				}
 
 				else {
+					document.getElementById("cocktail_name").value = "";
 					$(".onlyIfCocktail").hide();
 					$(".onlyIfIngredients").show();
 				}
@@ -105,8 +97,6 @@
 			
 			var ingredients = document.getElementById('all_ingredients').value
 			var cocktailName = document.getElementById('cocktail_name').value
-			// alert("Ingredients is: " + ingredients);
-			// alert("cocktailName is: " + cocktailName);
 			if(ingredients == "")
 				fetchCocktailByName(cocktailName);
 			else
@@ -126,19 +116,17 @@
 
 			}
 			var full_ingredient_request = ingredient_http + api_drink_request;
-			// For testing purposes only: 
-			// console.log(full_ingredient_request);
+			
 			fetchCocktailByIngredient(full_ingredient_request);
 		}
 
 		function fetchCocktailByIngredient(api_request)
 		{
-			fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Rum')
+			fetch(api_request)
 			.then(function(response) {
 				return response.json();
 			})
 			 .then(function(json) {
-				//   console.log(json)
 				var string = JSON.stringify(json);
         		var read_in = JSON.parse(string);
         		read_in.drinks.forEach(drink => {
@@ -160,7 +148,6 @@
         		return response.json();
     		})
 			.then(function(json) {
-				// console.log(json);
 				var string = JSON.stringify(json);
 				var read_in = JSON.parse(string);
         		var search_q = "";
@@ -188,10 +175,8 @@
 					//new_div.appendChild(drink_name);
 
 					addIngrdts(ingdts_and_msrmts, drink);
-					//new_div.appendChild(ingdts_and_msrmts);
-					// new_img.style.display = "inline-block";
 					new_img.src = drink.strDrinkThumb;
-					// new_div.style.margin = "15px";
+					
 					new_div.appendChild(new_img);
 
 					overlay_div.appendChild(drink_name);
@@ -200,12 +185,8 @@
 					overlay_div.appendChild(text_div);
 					new_div.appendChild(overlay_div);
 
-					// var sample_text = document.createElement("p");
-					// sample_text.innerHTML = drink.strInstructions;
-					// sample_text.style.color = "#aaa";
 
 					drink_div.appendChild(new_div);
-					// drink_div.appendChild(sample_text)
 					document.body.appendChild(drink_div);
 
         		});
