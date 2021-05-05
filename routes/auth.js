@@ -53,8 +53,6 @@ router.post('/register', async (req, res) =>
         }
         var dbo = db.db("Drinks");
         var coll = dbo.collection('users'); 
-        // console.log("before find");
-        // console.log("Username is: " + input_data['username'] + "    Password: " + input_data['password']);
         user_query = {username:input_data['username']};
         coll.find(user_query).toArray(async function(err, items) {
             if (err) {
@@ -62,8 +60,6 @@ router.post('/register', async (req, res) =>
             } 
             else 
             {
-                // if(input_data['password'] != items[0].password)
-                //     return res.send("Incorrect password");
                 if (items.length == 0)
                 {
                     coll.insertOne({"username":input_data['username'], "password":input_data['password']})
@@ -82,8 +78,6 @@ router.post('/register', async (req, res) =>
 
 
 router.post('/login', async (req, res) => {
-
-    // console.log("here!");
      input_data = "";
      req.on('data', data => {
         input_data += data.toString();
@@ -100,8 +94,7 @@ router.post('/login', async (req, res) => {
         }
         var dbo = db.db("Drinks");
         var coll = dbo.collection('users');
-        // console.log("before find");
-        // console.log("Username is: " + input_data['username'] + "    Password: " + input_data['password']);
+
         user_query = {username:input_data['username']};
         coll.find(user_query).toArray(function(err, items) {
           if (err) {
