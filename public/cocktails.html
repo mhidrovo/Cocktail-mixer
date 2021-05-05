@@ -170,12 +170,14 @@
 					var new_div = document.createElement("div");
 					var text_div = document.createElement("div");
 					var overlay_div = document.createElement("div");
+					var ingdts_and_msrmts = document.createElement("p");
 
 					overlay_div.className = "overlay";
 					new_div.className = "Image_response";
 					text_div.className = "text_overlay";
 					drink_div.className = "Results";
 					drink_name.className = "drink_name";
+					ingdts_and_msrmts.className = "ingredients"
 					
 					text_div.innerHTML = drink.strInstructions;
 					drink_name.innerHTML = drink.strDrink;
@@ -184,7 +186,6 @@
 					new_img.className = "image";
 					
 					//new_div.appendChild(drink_name);
-					var ingdts_and_msrmts = document.createElement("p");
 
 					addIngrdts(ingdts_and_msrmts, drink);
 					//new_div.appendChild(ingdts_and_msrmts);
