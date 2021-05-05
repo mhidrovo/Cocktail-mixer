@@ -176,23 +176,25 @@
 					drink_div.className = "Results";
 					drink_name.className = "drink_name";
 					
-					var ingredients_list = "";
 					text_div.innerHTML = drink.strInstructions;
-					
 					drink_name.innerHTML = drink.strDrink;
+
 					var new_img = document.createElement("img");
 					new_img.className = "image";
-					//new_img.style.width = "50vh";
 					
-					new_div.appendChild(drink_name);
+					//new_div.appendChild(drink_name);
 					var ingdts_and_msrmts = document.createElement("p");
 
 					addIngrdts(ingdts_and_msrmts, drink);
-					new_div.appendChild(ingdts_and_msrmts);
+					//new_div.appendChild(ingdts_and_msrmts);
 					// new_img.style.display = "inline-block";
 					new_img.src = drink.strDrinkThumb;
 					// new_div.style.margin = "15px";
 					new_div.appendChild(new_img);
+
+					overlay_div.appendChild(drink_name);
+
+					overlay_div.appendChild(ingdts_and_msrmts);
 					overlay_div.appendChild(text_div);
 					new_div.appendChild(overlay_div);
 

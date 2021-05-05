@@ -117,7 +117,7 @@ h1 {
 
 .Image_response {
 	position: relative;
-	width: 25%;
+	width: 40%; 
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -132,7 +132,7 @@ h1 {
 	left: 0;
 	right: 0;
 	height: auto;
-	width: 50vh;
+	width: 75vh;
 	opacity: 0;
 	transition: .5s ease;
 	background-color: #353535;
@@ -140,16 +140,18 @@ h1 {
   
 .image {
 	display: block;
-	width: 50vh;
+	width: 75vh;
 	height: auto;
   }
 
 .text_overlay {
 	color: rgb(255, 255, 255);
-	font-size: 25px;
+	font-size: 15px;
+	width: 65%;
+	height: auto;
 	position: absolute;
-	top: 50%;
-	left: 50%;
+	top: 75%;
+	left: 60%;
 	-webkit-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
