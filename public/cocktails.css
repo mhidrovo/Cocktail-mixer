@@ -56,11 +56,9 @@ a:hover {
 }
 
 #form {
-	padding: 10px;
-	margin-left: 380px;
-	margin-right: 380px;
-	margin-top: 150px;
-	margin-bottom: 150px;
+	padding: 4% 2%;
+	margin: 12% 24%;
+	margin-bottom: 12%;
 	background: rgba(0, 0, 0, 0.73);
 }
 
@@ -117,7 +115,7 @@ h1 {
 
 .Image_response {
 	position: relative;
-	width: 40%; 
+	width: 25%;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -132,7 +130,7 @@ h1 {
 	left: 0;
 	right: 0;
 	height: auto;
-	width: 75vh;
+	width: 50vh;
 	opacity: 0;
 	transition: .5s ease;
 	background-color: #353535;
@@ -140,18 +138,16 @@ h1 {
   
 .image {
 	display: block;
-	width: 75vh;
+	width: 50vh;
 	height: auto;
   }
 
 .text_overlay {
 	color: rgb(255, 255, 255);
-	font-size: 15px;
-	width: 65%;
-	height: auto;
+	font-size: 25px;
 	position: absolute;
-	top: 75%;
-	left: 60%;
+	top: 50%;
+	left: 50%;
 	-webkit-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
@@ -160,6 +156,61 @@ h1 {
 
 .Image_response:hover .overlay {
 	opacity: 0.8;
-  } 
+}
 
+
+
+@media only screen and (max-width: 1000px) {
+
+	#navBar {
+		height: 6%;
+	}
+
+	#logo {
+		padding-top: 2.4vw;
+	}
+
+	.navBox {
+		font-size: calc(10px + 1.6vw);
+		padding-top: 2.4vw;
+	}
+
+
+	#formBackground {
+		background-image: url('phone_bar.jpg');
+	}
+
+	#form {
+		padding: 8% 0%;
+		margin: 56% 14%;
+		margin-bottom: 82%;
+	}
+
+	h1 {
+		font-size: 4vw;
+	}
+
+	span {
+		font-size: 2.4vw;
+	}
+
+	p {
+		margin: 7% 0%;
+	}
+
+	.button {
+		font-size: 2vw;
+		margin-top: 3%;
+		padding: 10px 40px;
+		border-width: 2px;
+
+	}
+
+	.button:hover {
+		font-size: 2vw;
+		margin-top: 3%;
+		padding: 10px 40px;
+		border-width: 2px;
+	}
+}
 

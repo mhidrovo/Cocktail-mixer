@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,19 +41,19 @@
 
 				<p> 
 					<span class="radio">
-						<input class="radio" type="radio"  name="recipe/cocktail" value="cocktail" id="cocktail" checked="checked" onclick="checkCorI()"/>Look up cocktails
+						<input class="radio" type="radio"  name="recipe/cocktail" value="cocktail" id="cocktail" checked="checked" onclick="checkCorI()"/><span>Look up cocktails</span>
 					</span>
 					<span class="radio">
-						<input class="radio" type="radio"  name="recipe/cocktail" value="ingredients" id="ingredients" onclick="checkCorI()"/>Look up ingredients
+						<input class="radio" type="radio"  name="recipe/cocktail" value="ingredients" id="ingredients" onclick="checkCorI()"/><span>Look up ingredients</span>
 					</span>
 				</p>
 
 				<p class="onlyIfCocktail">
-					Your cocktail's name:<input type="text"  name="searchInput" id="cocktail_name" size="28" placeholder="'mojito', or 'margarita' for example"/>
+					<span>Your cocktail's name:</span><input type="text"  name="searchInput" id="cocktail_name" size="28" placeholder="'mojito', or 'margarita' for example"/>
 				</p>
 
 				<p class="onlyIfIngredients">
-					Your ingredients:<input type="text"  id= "all_ingredients" name="searchInput" size="22" placeholder="'rum', or 'mint' for example"/>
+					<span>Your ingredients:</span><input type="text"  id= "all_ingredients" name="searchInput" size="22" placeholder="'rum', or 'mint' for example"/>
 				</p>
 
 				<!--
@@ -67,7 +68,7 @@
 				-->
 
 				<p>
-					<input type='button' value="Search" onclick="fetchData()">
+					<input class="button" type='button' value="Search" onclick="fetchData()">
 				</p>
 
 			</form>
@@ -176,25 +177,23 @@
 					drink_div.className = "Results";
 					drink_name.className = "drink_name";
 					
+					var ingredients_list = "";
 					text_div.innerHTML = drink.strInstructions;
+					
 					drink_name.innerHTML = drink.strDrink;
-
 					var new_img = document.createElement("img");
 					new_img.className = "image";
+					//new_img.style.width = "50vh";
 					
-					//new_div.appendChild(drink_name);
+					new_div.appendChild(drink_name);
 					var ingdts_and_msrmts = document.createElement("p");
 
 					addIngrdts(ingdts_and_msrmts, drink);
-					//new_div.appendChild(ingdts_and_msrmts);
+					new_div.appendChild(ingdts_and_msrmts);
 					// new_img.style.display = "inline-block";
 					new_img.src = drink.strDrinkThumb;
 					// new_div.style.margin = "15px";
 					new_div.appendChild(new_img);
-
-					overlay_div.appendChild(drink_name);
-
-					overlay_div.appendChild(ingdts_and_msrmts);
 					overlay_div.appendChild(text_div);
 					new_div.appendChild(overlay_div);
 
@@ -265,24 +264,6 @@
 	</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
