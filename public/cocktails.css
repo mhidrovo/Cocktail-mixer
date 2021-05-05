@@ -65,7 +65,7 @@ a:hover {
 
 p {
 	margin: 30px;
-	font-size: 1.4vw;
+	font-size: 1.6vw;
 }
 
 input {
@@ -144,7 +144,7 @@ h1 {
 
 .text_overlay {
 	color: rgb(255, 255, 255);
-	font-size: 1.3vw;
+	font-size: 1.5vw;
 	width: 60%;
 	height: auto;
 	position: absolute;
