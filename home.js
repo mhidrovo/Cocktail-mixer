@@ -1,15 +1,18 @@
-/* Is there a way to split this into files? */
+/* Home.js: the backbone of the web app. 
+ * It listens the app on a local port or through Heroku and helps
+ * the user navigate through the program. 
+ */
+
+// These are the modules we will be using. 
 const mongoose = require('mongoose');
 const authRoute = require('./routes/auth');
 const bodyParser = require('body-parser');
 const express = require('express');
 const path = require('path');
-// Mijael says this: 
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
 
 
 
+/* Mongo DB connection string*/
 const url = "mongodb+srv://mhidrovo:aaa@cluster0.jwixh.mongodb.net/Drinks?retryWrites=true&w=majority"; 
 const app = express();
 
@@ -20,17 +23,9 @@ mongoose.connect(url,{ useUnifiedTopology: true, useNewUrlParser: true, useCreat
 app.use(express.json());
 // Route middlewares:
 app.use("/api/user", authRoute);
-// app.use("/")
-// var drinkSchema = new mongoose.Schema(
-//     {
-//         username: {type: String, unique: true , required: true, maxLength: 100},
-//         password: {type: String, unique: false, required: true, maxLength: 100},
-//         drinks: [{}]
-//     }
-// )
-// app.get()
 
 
+/* App redirections when a user clicks on a hyperlink.  */
 app.get('/about', function(req, res)  {
   res.sendFile(path.join(__dirname, '/public', 'about2.html'));
   console.log('listening')
@@ -71,6 +66,6 @@ const port = process.env.PORT || 4000;
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.listen(port, function() {
-    console.log('listening on 3000');
+    console.log('Welcome to our app!');
   });
 
