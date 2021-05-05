@@ -14,6 +14,7 @@ body {
 	height: 12%;
 	min-height: 60px;
 	background: rgba(0, 0, 0, 0.6);
+	z-index: 10;
 }
 
 #links {
@@ -111,11 +112,9 @@ h1 {
 	width: 18px;
 }
 
-
-
 .Image_response {
 	position: relative;
-	width: 35%; 
+	width: 43%; 
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -137,6 +136,7 @@ h1 {
   }
   
 .image {
+	text-align: center;
 	display: block;
 	width: 75vh;
 	height: auto;
@@ -144,7 +144,7 @@ h1 {
 
 .text_overlay {
 	color: rgb(255, 255, 255);
-	font-size: 16px;
+	font-size: 1.3vw;
 	width: 60%;
 	height: auto;
 	position: absolute;
@@ -172,7 +172,6 @@ h1 {
 .Image_response:hover .overlay {
 	opacity: 0.8;
   } 
-
 
 
 
@@ -211,7 +210,8 @@ h1 {
 	}
 
 	p {
-		margin: 7% 0%;
+		margin: 7% 2%;
+		font-size: 2.6vw;
 	}
 
 	.button {
@@ -228,5 +228,66 @@ h1 {
 		padding: 10px 40px;
 		border-width: 2px;
 	}
+
+	.Image_response {
+		position: relative;
+		width: 62.2%; 
+		display: block;
+		margin-left: 20%;
+		margin-right: 20%;
+		padding-top: 50px;
+	}
+
+
+	.overlay {
+		position: absolute;
+		top: 50px;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: auto;
+		width: 100%;
+		opacity: 0;
+		transition: .5s ease;
+		background-color: #353535;
+	}
+	  
+	.image {
+		display: block;
+		width: 35vh;
+		height: auto;
+		margin-bottom: 50px;
+	}
+
+	.text_overlay {
+		color: rgb(255, 255, 255);
+		font-size: 2.4vw;
+		width: 70%;
+		height: auto;
+		position: absolute;
+		top: 75%;
+		left: 58%;
+		-webkit-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		text-align: center;
+	}
+
+
+	.drink_name {
+		text-align: center;
+		font-size: 4vw;
+	}
+
+
+	.ingredients {
+		text-align: left;
+		font-size: 2vw;
+	}
+
+
+	.Image_response:hover .overlay {
+		opacity: 0.8;
+	} 
 }
 
