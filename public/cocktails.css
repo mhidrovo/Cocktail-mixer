@@ -144,7 +144,7 @@ h1 {
 
 .text_overlay {
 	color: rgb(255, 255, 255);
-	font-size: 18px;
+	font-size: 16px;
 	width: 60%;
 	height: auto;
 	position: absolute;
@@ -165,7 +165,7 @@ h1 {
 
 .ingredients {
 	text-align: left;
-	font-size: 18px;
+	font-size: 16px;
   }
 
 
